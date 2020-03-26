@@ -20,10 +20,14 @@
 
 'use strict';
 
+// Required to be able to import files written in Python
 require('metacall');
 
+// Load Telethon Python script using MetaCall
 const bot = require('bot.py');
 
+// Register an event handler
 bot.register((name, message) => console.log(name, 'said', message, '!'));
 
+// Start the bot event loop
 bot.run();
