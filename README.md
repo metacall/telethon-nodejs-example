@@ -17,6 +17,7 @@ Install application dependencies:
 
 ```sh
 metacall pip3 install -r requirements.txt
+metacall npm install metacall
 ```
 
 ## Run the Application

@@ -23,6 +23,8 @@ services:
   telethon:
     image: metacall/telethon-nodejs-example
     container_name: metacall_telethon_nodejs_example
+    stdin_open: true
+    tty: true
     build:
       context: .
       dockerfile: Dockerfile
