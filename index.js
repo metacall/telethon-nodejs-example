@@ -20,6 +20,10 @@
 
 'use strict';
 
-module.exports = {
-    print: text => console.log(text)
-}
+require('metacall');
+
+const bot = require('bot.py');
+
+bot.register((name, message) => console.log(name, 'said', message, '!'));
+
+bot.run();

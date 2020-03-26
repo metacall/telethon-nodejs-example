@@ -34,10 +34,11 @@ RUN apk add curl \
 COPY requirements.txt /
 
 # Install Dependencies
-RUN metacall pip3 install -r requirements.txt
+RUN metacall pip3 install -r requirements.txt \
+	&& metacall npm install metacall
 
 # Copy sources
-COPY handlers.js index.py /
+COPY index.js bot.py /
 
 # Entry point
-CMD [ "metacall", "index.py"]
+CMD [ "metacall", "index.js"]
