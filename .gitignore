@@ -3,13 +3,14 @@
 
 # Session files from Telethon
 *.session
+*.session-journal
 
 # Created by https://www.gitignore.io/api/node,python
 # Edit at https://www.gitignore.io/?templates=node,python
 
 ### Node ###
 # Logs
-logs
+logs/*
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -217,3 +218,6 @@ dmypy.json
 .pyre/
 
 # End of https://www.gitignore.io/api/node,python
+
+# MetaCall logs
+!logs/.gitkeep

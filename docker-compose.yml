@@ -17,27 +17,19 @@
 #	limitations under the License.
 #
 
-FROM alpine:latest
+version: "3.7"
 
-# Image descriptor
-LABEL copyright.name="Vicente Eduardo Ferrer Garcia" \
-	copyright.address="vic798@gmail.com" \
-	maintainer.name="Vicente Eduardo Ferrer Garcia" \
-	maintainer.address="vic798@gmail.com" \
-	vendor="MetaCall Inc." \
-	version="0.1"
-
-# Install MetaCall
-RUN apk add curl \
-	&& curl -sL https://raw.githubusercontent.com/metacall/install/master/install.sh | sh
-
-COPY requirements.txt /
-
-# Install Dependencies
-RUN metacall pip3 install -r requirements.txt
-
-# Copy sources
-COPY handlers.js index.py /
-
-# Entry point
-CMD [ "metacall", "index.py"]
+services:
+  telethon:
+    image: metacall/telethon-nodejs-example
+    container_name: metacall_telethon_nodejs_example
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      TG_API_ID: ${TG_API_ID}
+      TG_API_HASH: ${TG_API_HASH}
+      TG_SESSION: ${TG_SESSION}
+    volumes:
+      - ${PWD}/${TG_SESSION}.session:/${TG_SESSION}.session
+      - ${PWD}/logs:/root/

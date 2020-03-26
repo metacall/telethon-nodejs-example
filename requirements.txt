@@ -1,1 +1,2 @@
 Telethon==1.11.3
+metacall==0.1.18
